@@ -2,6 +2,7 @@ package ru.plidia.dorothy.main;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -16,9 +17,18 @@ public class _Main {
             File directory = path.toFile();
             deleteDirectory(directory);
         }
-        Files.createDirectories(new File("data/"
-                + LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")))
+        String separator = File.separator;
+        Files.createDirectories(new File(new StringBuilder().append("data").append(separator)
+                .append(LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))).toString())
                 .toPath());
+
+        File originalFile = new File(new StringBuilder().append("src").append(separator)
+                .append("main").append(separator)
+                .append("resources").append(separator)
+                .append("story.txt").toString());
+
+
+
 
 
     }
